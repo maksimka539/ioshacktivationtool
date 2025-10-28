@@ -19,7 +19,7 @@ No activation files are required — everything is done directly via SSH.
 | iOS Version | Activation Method                                                |
 | ----------- | ---------------------------------------------------------------- |
 | iOS 5–6     | Replace `lockdownd` with patched version                         |
-| iOS 7–10    | Patch `MobileGestalt` | Remove `Setup.app` if it didn't work out |
+| iOS 7–10    | Patch `MobileGestalt` or remove `Setup.app` if it didn't work out |
 
 ---
 
