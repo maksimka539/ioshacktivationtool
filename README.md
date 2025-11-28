@@ -1,14 +1,14 @@
-# 📱 iOS 5–10 Hacktivation Tool
+# 📱 iOS 5–9 Hacktivation Tool
 
 **Author:** [maksimka539](https://github.com/maksimka539)\
-**Compatibility:** iOS 5.0 – 10.3.4 (32-bit devices only)\
+**Compatibility:** iOS 5.0 – 9.3.6 (32-bit devices only)\
 **Purpose:** Bypass iCloud activation screen using SSH Ramdisk method.
 
 ---
 
 ## 🧩 What is this?
 
-This tool is designed for **iCloud-locked 32-bit iOS devices** running iOS 5–10.\
+This tool is designed for **iCloud-locked 32-bit iOS devices** running iOS 5–9.\
 It uses an **SSH Ramdisk**, loaded via [Legacy iOS Kit](https://github.com/LukeZGD/Legacy-iOS-Kit), to patch system files and simulate activation.\
 No activation files are required — everything is done directly via SSH.
 
@@ -19,7 +19,7 @@ No activation files are required — everything is done directly via SSH.
 | iOS Version | Activation Method                                                |
 | ----------- | ---------------------------------------------------------------- |
 | iOS 5–6     | Replace `lockdownd` with patched version                         |
-| iOS 7–10    | Patch `MobileGestalt` or remove `Setup.app` if it didn't work out |
+| iOS 7–10    | Patch `MobileGestalt` and remove `Setup.app`                     |
 
 ---
 
@@ -113,38 +113,11 @@ mount.sh
 
 ---
 
-## 🔧 What the Script Does
-
-### For iOS 5–6:
-
-- Replaces `/usr/libexec/lockdownd` with a patched version.
-- Reboots the device.
-  > The patched `lockdownd` must be placed in the `resources/` folder.
-
-### For iOS 7–10:
-
-- Removes `Setup.app` to hide the activation screen.
-- Patches `/private/var/mobile/Library/Caches/com.apple.MobileGestalt.plist` by adding:
-
-```xml
-  <dict>
-    <key>a6vjPkzcRjrsXmniFsmOdg</key>
-    <true/>
-  </dict>
-```
-
-- Optionally deletes `activation_records`, `data_ark.plist`, and related lockdown files.
-- Reboots the device.
-
-After reboot, the device should appear as **activated** in iTunes and 3uTools.
-
----
-
 ## ⚠️ Important Notes
 
 - Works only on **32-bit devices** (iPhone 4, 4s, 5; iPad 2/3/4; iPad mini 1; iPod touch 4/5).
 - **Does not** support 64-bit devices (iPhone 5s and newer).
-- This **does not remove iCloud lock**, it only bypasses the activation screen.
+- This **does not remove iCloud lock**, it only bypasses the activation screen. Signal will not work.
 
 ---
 
